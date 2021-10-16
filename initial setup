@@ -1,0 +1,33 @@
+ssh root@SERVER_IP_ADDRESS
+
+## Add new User "demo"
+
+adduser demo
+apt update && apt dist-upgrade && apt-get install sudo
+usermod -a -G sudo demo
+
+
+## SSH Key auf Client erstellen
+
+ssh-keygen
+cat ~/.ssh/id_rsa.pub
+# -> Copy Key
+
+
+## SSH Key auf Host kopieren
+
+su - demo
+mkdir .ssh
+chmod 700 .ssh
+# -> Paste Key inside:
+nano .ssh/authorized_keys
+chmod 600 .ssh/authorized_keys
+exit
+
+
+nano /etc/ssh/sshd_config
+## uncomment (remove #) & change to:
+PermitRootLogin no
+
+
+
