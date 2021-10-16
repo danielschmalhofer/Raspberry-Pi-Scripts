@@ -10,13 +10,51 @@
   Process: 10751 ExecStart=/usr/bin/wg-quick up wg0 (code=exited, status=2)
  Main PID: 10751 (code=exited, status=2)
 
-Okt 16 21:39:38 Erde wg-quick[10751]: [#] wg set wg0 fwmark 51820
-Okt 16 21:39:38 Erde wg-quick[10751]: [#] ip -6 route add ::/0 dev wg0 table 51820
-Okt 16 21:39:38 Erde wg-quick[10751]: RTNETLINK answers: No such device
-Okt 16 21:39:38 Erde wg-quick[10751]: [#] resolvconf -d wg0 -f
-Okt 16 21:39:39 Erde wg-quick[10751]: Too few arguments.
-Okt 16 21:39:39 Erde wg-quick[10751]: Too few arguments.
-Okt 16 21:39:39 Erde wg-quick[10751]: [#] ip link delete dev wg0
-Okt 16 21:39:39 Erde systemd[1]: wg-quick@wg0.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
-Okt 16 21:39:39 Erde systemd[1]: wg-quick@wg0.service: Failed with result 'exit-code'.
-Okt 16 21:39:39 Erde systemd[1]: Failed to start WireGuard via wg-quick(8) for wg0.
+Okt 16 21:39:38 MyPC systemd[1]: Starting WireGuard via wg-quick(8) for wg0...
+-- Subject: A start job for unit wg-quick@wg0.service has begun execution
+-- Defined-By: systemd
+-- Support: https://www.debian.org/support
+-- 
+-- A start job for unit wg-quick@wg0.service has begun execution.
+-- 
+-- The job identifier is 1965.
+Okt 16 21:39:38 MyPC wg-quick[10751]: [#] ip link add wg0 type wireguard
+Okt 16 21:39:38 MyPC NetworkManager[675]: <info>  [1634413178.8723] manager: (wg0): new WireGuard device (/org/freedesktop/NetworkManager/Devices/5)
+Okt 16 21:39:38 MyPC systemd-udevd[10762]: link_config: autonegotiation is unset or enabled, the speed and duplex are not writable.
+Okt 16 21:39:38 MyPC systemd-udevd[10762]: Using default interface naming scheme 'v240'.
+Okt 16 21:39:38 MyPC wg-quick[10751]: [#] wg setconf wg0 /dev/fd/63
+Okt 16 21:39:38 MyPC wg-quick[10751]: [#] ip -4 address add 10.67.222.155/32 dev wg0
+Okt 16 21:39:38 MyPC wg-quick[10751]: [#] ip -6 address add fc00:bbbb:bbbb:bb01::4:de9a/128 dev wg0
+Okt 16 21:39:38 MyPC wg-quick[10751]: [#] ip link set mtu 1270 up dev wg0
+Okt 16 21:39:38 MyPC wg-quick[10751]: [#] resolvconf -a wg0 -m 0 -x
+Okt 16 21:39:38 MyPC wg-quick[10751]: Too few arguments.
+Okt 16 21:39:38 MyPC wg-quick[10751]: Too few arguments.
+Okt 16 21:39:38 MyPC wg-quick[10751]: [#] wg set wg0 fwmark 51820
+Okt 16 21:39:38 MyPC wg-quick[10751]: [#] ip -6 route add ::/0 dev wg0 table 51820
+Okt 16 21:39:38 MyPC wg-quick[10751]: RTNETLINK answers: No such device
+Okt 16 21:39:38 MyPC wg-quick[10751]: [#] resolvconf -d wg0 -f
+Okt 16 21:39:39 MyPC wg-quick[10751]: Too few arguments.
+Okt 16 21:39:39 MyPC wg-quick[10751]: Too few arguments.
+Okt 16 21:39:39 MyPC wg-quick[10751]: [#] ip link delete dev wg0
+Okt 16 21:39:39 MyPC systemd[1]: wg-quick@wg0.service: Main process exited, code=exited, status=2/INVALIDARGUMENT
+-- Subject: Unit process exited
+-- Defined-By: systemd
+-- Support: https://www.debian.org/support
+-- 
+-- An ExecStart= process belonging to unit wg-quick@wg0.service has exited.
+-- 
+-- The process' exit code is 'exited' and its exit status is 2.
+Okt 16 21:39:39 MyPC systemd[1]: wg-quick@wg0.service: Failed with result 'exit-code'.
+-- Subject: Unit failed
+-- Defined-By: systemd
+-- Support: https://www.debian.org/support
+-- 
+-- The unit wg-quick@wg0.service has entered the 'failed' state with result 'exit-code'.
+Okt 16 21:39:39 MyPC systemd[1]: Failed to start WireGuard via wg-quick(8) for wg0.
+-- Subject: A start job for unit wg-quick@wg0.service has failed
+-- Defined-By: systemd
+-- Support: https://www.debian.org/support
+-- 
+-- A start job for unit wg-quick@wg0.service has finished with a failure.
+-- 
+-- The job identifier is 1965 and the job result is failed.
